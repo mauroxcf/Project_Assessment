@@ -9,8 +9,7 @@ class User(models.Model):
     email = models.CharField(max_length=60)
     company = models.CharField(max_length=45)
 
-    def __str__(self):
-        return self.name + ' ' + self.last_name
+
 class Order(models.Model):
     idOrder = models.IntegerField(primary_key=True)
     date = models.DateField()
@@ -25,8 +24,6 @@ class Order(models.Model):
     country = models.CharField(max_length=45)
     cost_of_shipping = models.FloatField()
 
-    def __str__(self):
-        return self.idOrder
 
 class payment(models.Model):
     idpayment = models.IntegerField(primary_key=True)
@@ -36,6 +33,3 @@ class payment(models.Model):
     total = models.FloatField()
     status = models.CharField(max_length=45)
     id_order = models.ForeignKey(Order, on_delete = models.CASCADE)
-
-    def __str__(self):
-        return self.idpayment
