@@ -20,10 +20,13 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 
-router.register('Users', views.UserViewSet)
-router.register('Order', views.OrderViewSet)
+router.register('users', views.UserViewSet)
+router.register('order', views.OrderViewSet)
 router.register('payment', views.paymentViewSet)
+
 urlpatterns = [
-    path('company/home/', include(router.urls)),
+    path('api/v1/', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api/v1/auth/', include('rest_auth.urls')),
+    path('api/v1/auth/registration/', include('rest_auth.registration.urls')),
 ]
