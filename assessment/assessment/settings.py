@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'rest_auth.registration',
+    'django_filters',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -136,9 +137,12 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-  'DEFAULT_PERMISSION_CLASSES': [                     
-    'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-  ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        ],
+    'DEFAULT_PERMISSION_CLASSES': [                     
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ],
 }
 
 SITE_ID = 1

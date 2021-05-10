@@ -1,7 +1,13 @@
 from django.urls import path
 from . import views
+from rest_framework import routers
 
+app_name = 'app'
+router = routers.DefaultRouter()
 
-urlpatterns = [
-  path('', views.index, name='index'),
-]
+router.register('users', views.UserViewSet, basename='users')
+router.register('order', views.OrderViewSet, basename='order')
+router.register('orderspe', views.OrderVsSpec, basename='orderspe')
+router.register('payment', views.PaymentViewSet, basename='payment')
+
+urlpatterns = router.urls

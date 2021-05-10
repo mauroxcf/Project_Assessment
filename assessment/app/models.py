@@ -25,7 +25,7 @@ class Order(models.Model):
     cost_of_shipping = models.FloatField()
 
 
-class payment(models.Model):
+class Payment(models.Model):
     idpayment = models.IntegerField(primary_key=True)
     types = models.CharField(max_length=45)
     date = models.DateField()
