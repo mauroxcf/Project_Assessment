@@ -7,7 +7,6 @@ router = routers.DefaultRouter()
 
 router.register('users', views.UserViewSet, basename='users')
 router.register('order', views.OrderViewSet, basename='order')
-router.register('orderspe', views.OrderVsSpec, basename='orderspe')
 router.register('payment', views.PaymentViewSet, basename='payment')
 
 urlpatterns = router.urls
